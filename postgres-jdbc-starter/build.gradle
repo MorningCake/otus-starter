@@ -1,0 +1,9 @@
+dependencies {
+    api libs.postgresJdbc
+}
+
+ext {
+    archiveNameAndArtifactId = 'postgres-jdbc-starter'
+    PomName = 'postgres-jdbc-starter'
+    PomDescription = 'postgres-jdbc-starter'
+}

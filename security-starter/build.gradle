@@ -1,0 +1,18 @@
+dependencies {
+    implementation group: 'ru.morningcake', name: 'lib-api-base', version: '1.0.0-SNAPSHOT', changing: true
+    implementation project(':general-starter')
+    api libs.bundles.springBase
+    implementation libs.javaxValidation
+    api libs.springBootStarterAop
+    api group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.13.0'
+    api libs.springCloudFeign
+    constraints {
+        implementation project(':general-starter')
+    }
+}
+
+ext {
+    archiveNameAndArtifactId = 'security-starter'
+    PomName = 'security-starter'
+    PomDescription = 'security-starter'
+}

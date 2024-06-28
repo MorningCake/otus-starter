@@ -1,0 +1,18 @@
+pluginManagement {
+  repositories {
+    mavenCentral()
+    gradlePluginPortal()
+  }
+}
+
+enableFeaturePreview("VERSION_CATALOGS")
+
+rootProject.name = 'lib-starter'
+
+include 'general-starter'
+include 'data-starter'
+include 'test-starter'
+include 'security-starter'
+include 'mapstruct-processor-starter'
+include 'postgres-jdbc-starter'
+include 'shedlock-starter'

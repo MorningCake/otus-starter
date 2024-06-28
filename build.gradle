@@ -1,0 +1,109 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '6.2.0' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE' apply false
+    id "org.sonarqube" version "3.2.0"
+}
+
+group 'ru.morningcake'
+version '1.0.0-SNAPSHOT'
+
+configurations.all {
+    resolutionStrategy {
+        cacheChangingModulesFor(0, "seconds")
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+allprojects {
+    group 'ru.morningcake'
+    version '1.0.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    ext {
+        springCloudBomVersion = '2021.0.3'
+
+        archiveNameAndArtifactId = ''
+        PomName = ''
+        PomDescription = ''
+    }
+
+    apply plugin: 'idea'
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: "io.freefair.lombok"
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    sonarqube {
+        properties {
+            property "sonar.sourceEncoding", "UTF-8"
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            cacheChangingModulesFor 0, 'seconds'
+        }
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    compileJava.options.encoding = "UTF-8"
+    compileTestJava.options.encoding = "UTF-8"
+
+    dependencies {
+        implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    }
+    
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    tasks.withType(Test) {
+        systemProperty "file.encoding", "UTF-8"
+    }
+
+    javadoc {
+        options.encoding = 'UTF-8'
+    }
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allJava
+        archiveClassifier.set("sources")
+    }
+
+    task javadocJar(type: Jar) {
+        from javadoc
+        archiveClassifier.set("javadoc")
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+            }
+        }
+    }
+}

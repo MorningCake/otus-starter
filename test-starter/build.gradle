@@ -1,0 +1,14 @@
+dependencies {
+    api libs.bundles.springBase
+    api libs.bundles.test
+    api libs.apacheCommonsLang3
+    api libs.preliquibase
+    implementation project(':general-starter')
+}
+
+ext {
+    archiveNameAndArtifactId = 'test-starter'
+    PomName = 'test-starter'
+    PomDescription = 'test-starter'
+}
+

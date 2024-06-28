@@ -1,0 +1,9 @@
+dependencies {
+    api libs.mapstructProcessor
+}
+
+ext {
+    archiveNameAndArtifactId = 'mapstruct-processor-starter'
+    PomName = 'mapstruct-processor-starter'
+    PomDescription = 'mapstruct-processor-starter'
+}

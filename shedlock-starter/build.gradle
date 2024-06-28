@@ -1,0 +1,11 @@
+dependencies {
+    api libs.bundles.springBase
+    api libs.bundles.shedlock
+    api libs.bundles.springDataJpa
+}
+
+ext {
+    archiveNameAndArtifactId = 'shedlock-starter'
+    PomName = 'shedlock-starter'
+    PomDescription = 'shedlock-starter'
+}

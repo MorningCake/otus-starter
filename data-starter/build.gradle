@@ -1,0 +1,21 @@
+dependencies {
+    implementation project(':general-starter')
+
+    api libs.bundles.springBase
+    api libs.bundles.springDataJpa
+    api libs.hibernateTypes52
+    api libs.preliquibase
+    api libs.liquibase
+    api libs.googleGuava
+    api 'io.vavr:vavr:0.10.4'
+
+    constraints {
+        implementation project(':general-starter')
+    }
+}
+
+ext {
+    archiveNameAndArtifactId = 'data-starter'
+    PomName = 'data-starter'
+    PomDescription = 'data-starter'
+}
