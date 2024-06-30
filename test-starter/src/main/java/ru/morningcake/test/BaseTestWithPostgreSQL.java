@@ -5,7 +5,7 @@ import io.zonky.test.db.AutoConfigureEmbeddedDatabase.DatabaseProvider;
 import io.zonky.test.db.AutoConfigureEmbeddedDatabase.RefreshMode;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
-import ru.morningcake.test.timezone.BaseTestDefaultTimezone;
+
 
 /**
  * Базовый класс для всех тестов приложения.

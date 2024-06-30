@@ -101,6 +101,7 @@ jacksonDatatype = { module = 'com.fasterxml.jackson.datatype:jackson-datatype-js
 servlet = { module = 'javax.servlet:javax.servlet-api', version.ref = "servletVersin" }
 apacheCommons = { module = 'org.apache.commons:commons-collections4', version.ref = "apacheCommonsVersion" }
 apacheCommonsIo = { module = 'org.apache.directory.studio:org.apache.commons.io', version.ref = "apacheCommonsIoVersion" }
+apacheCommonsLang3 = { module = "org.apache.commons:commons-lang3", version.ref = "apacheCommonsLang3Version" }
 commonsBbeanutils = { module = 'commons-beanutils:commons-beanutils', version.ref = "apcaheBeansVersion" }
 
 mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstructVersion" }
@@ -109,7 +110,6 @@ mapstructLombok = { module = "org.projectlombok:lombok-mapstruct-binding", versi
 swaggerAnnotation = { module = "io.swagger:swagger-annotations", version.ref = "swaggerAnnotationVersion" }
 swagger = { module = "io.springfox:springfox-swagger2", version.ref = "swaggerVersion" }
 
-apacheCommonsLang3 = { module = "org.apache.commons:commons-lang3", version.ref = "apacheCommonsLang3Version" }
 
 libBaseApi = { module = "ru.morningcake:lib-api-base", version.ref = "libApiVersion" }
 
@@ -139,12 +139,11 @@ springBase = ["springBoot", "springBootAutoconfigure", "springBootStarterWeb"]
 springDataJpa = ["springDataJpa"]
 springConfigurationProcessor = ["springConfigurationProcessor"]
 
-apacheCommons = ["apacheCommonsLang3"]
+apacheCommons = ["apacheCommonsLang3", "apacheCommons", "apacheCommonsIo"]
+commonsBbeanutils = ["commonsBbeanutils"]
 
 servlet = ["servlet"]
 
-apache = ["apacheCommons"]
-commonsBbeanutils = ["commonsBbeanutils"]
 validation = ["javaxValidation", "springBootStarterValidation"]
 
 test = ["springBootStarterTest", "jupiterApi", "jupiterEngine", "zonkySpringTest", "zonkyPostgreSQL"]

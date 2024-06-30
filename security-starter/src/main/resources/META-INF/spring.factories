@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  ru.morningcake.security.config.SecurityConfig\
-  , ru.morningcake.security.config.auth.AuthAutoConfiguration

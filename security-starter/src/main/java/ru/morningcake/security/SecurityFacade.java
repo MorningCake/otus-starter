@@ -1,8 +1,10 @@
 package ru.morningcake.security;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
-import ru.morningcake.data.dto.security.CurrentUser;
+import ru.morningcake.jwt.JwtToken;
+import ru.morningcake.security.context.TokenContext;
 
 /**
  * Текущий пользователь системы.
@@ -11,9 +13,11 @@ import ru.morningcake.data.dto.security.CurrentUser;
 @RequiredArgsConstructor
 public class SecurityFacade {
 
+  private final TokenContext context;
 
-  public CurrentUser getCurrentUser() {
-    return null; // todo
+  @Nullable
+  public JwtToken getToken() {
+    return context.getToken();
   }
 
 }

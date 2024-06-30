@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.FeignException;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,6 @@ import ru.morningcake.exception.*;
 import ru.morningcake.exception.data.*;
 
 import javax.validation.ConstraintViolationException;
-import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,28 +30,14 @@ import java.util.Objects;
 import static ru.morningcake.exception.BaseStatusCode.*;
 
 @ControllerAdvice
+@Order(2) // запуск после Aspect
 @Slf4j
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @ExceptionHandler(Error.class)
-    protected ResponseEntity<BaseResponse> handleAllErrors(Error error) {
-        log.error("Internal Error", error);
-        return ResponseEntity.internalServerError()
-                .body(new BaseResponse()
-                        .reason(INTERNAL_ERROR.name())
-                        .code(INTERNAL_ERROR.getCode())
-                        .success(false));
-    }
-
-    @ExceptionHandler(Exception.class)
-    protected ResponseEntity<BaseResponse> handleAllException(Exception exception) {
-        return ResponseEntity.internalServerError().body(logAndGetResponse(exception, INTERNAL_ERROR));
-    }
-
-    @ExceptionHandler(AccessDeniedException.class)
-    protected ResponseEntity<BaseResponse> handleAccessDeniedException(Exception exception) {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body((logAndGetResponse(exception, ACCESS_DENIED)));
+    @ExceptionHandler(NotAuthorizedException.class)
+    protected ResponseEntity<BaseResponse> handleNotAuthorizedException(Exception exception) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body((logAndGetResponse(exception, ACCESS_DENIED)));
     }
 
     @ExceptionHandler(SecurityException.class)
@@ -195,6 +181,21 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                         .build()
         );
     }
+
+  @ExceptionHandler(Error.class)
+  protected ResponseEntity<BaseResponse> handleAllErrors(Error error) {
+    log.error("Internal Error", error);
+    return ResponseEntity.internalServerError()
+        .body(new BaseResponse()
+            .reason(INTERNAL_ERROR.name())
+            .code(INTERNAL_ERROR.getCode())
+            .success(false));
+  }
+
+  @ExceptionHandler(Exception.class)
+  protected ResponseEntity<BaseResponse> handleAllException(Exception exception) {
+    return ResponseEntity.internalServerError().body(logAndGetResponse(exception, INTERNAL_ERROR));
+  }
 
     private BaseResponse logAndGetResponse(Throwable exception, BaseStatusCode statusCode) {
         log.error("Error", exception);

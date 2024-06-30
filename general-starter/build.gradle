@@ -1,5 +1,5 @@
 dependencies {
-    api libs.apacheCommonsIo
+    api libs.bundles.apacheCommons
     api libs.bundles.springBase
     api libs.bundles.mapstructLombok
     implementation group: 'ru.morningcake', name: 'lib-api-base', version: '1.0.0-SNAPSHOT', changing: true

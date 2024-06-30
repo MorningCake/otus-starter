@@ -1,7 +1,6 @@
-package ru.morningcake.test.timezone;
+package ru.morningcake.test;
 
 import org.junit.jupiter.api.BeforeEach;
-import ru.morningcake.test.BaseTest;
 
 import java.util.TimeZone;
 
