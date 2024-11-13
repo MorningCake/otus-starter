@@ -33,10 +33,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Базовый класс для всех тестов приложения.
- *
- * @author m.gromov
- * @version 1.0
- * @since 1.0.0
  */
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)

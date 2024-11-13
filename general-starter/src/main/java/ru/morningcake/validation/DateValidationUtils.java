@@ -12,10 +12,6 @@ import java.util.stream.Stream;
 
 /**
  * Утилитный класс для валидации дат
- *
- * @author r.galiev
- * @version 1.0.0
- * @since 1.0.0
  */
 public class DateValidationUtils {
 	private static final String AFTER_FORMAT = "%s %s should be after the current date %s";

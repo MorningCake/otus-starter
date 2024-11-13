@@ -2,7 +2,7 @@ dependencies {
     api libs.bundles.apacheCommons
     api libs.bundles.springBase
     api libs.bundles.mapstructLombok
-    implementation group: 'ru.morningcake', name: 'lib-api-base', version: '1.0.0-SNAPSHOT', changing: true
+    implementation group: 'ru.morningcake', name: 'lib-api-base', version: '1.1.0-SNAPSHOT', changing: true
     api libs.bundles.validation
     api libs.springCloudFeign
 }

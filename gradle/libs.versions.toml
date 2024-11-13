@@ -26,14 +26,14 @@ apacheCommonsIoVersion = '2.4'
 
 javaxValidationVersion = "2.0.1.Final"
 
-hibernateCoreVersion = "5.4.31.Final"
+hibernateCoreVersion = "6.5.2.Final"
 
 micrometerRegirstyPrometheusVersion = '1.6.6'
 
 springKafkaVersion = '2.8.2'
 springKafkaTestVersion = "2.8.2"
 
-libApiVersion = "1.0.0-SNAPSHOT"
+libApiVersion = "1.1.0-SNAPSHOT"
 
 javersVersion = "6.6.2"
 
