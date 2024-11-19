@@ -31,6 +31,10 @@ public class CrudUtils {
     else { return (first.containsAll(second) && second.containsAll(first)); }
   }
 
+  public static int calcOffset(int pageNum, int pageSize) {
+    return (pageNum - 1) * pageSize;
+  }
+
   /** При операции UPDATE - вычислить по сохраненному и обновляемому спискам, какие элементы необходимо сохранить, обновить и удалить */
   public <T> UpdateSets<T> calculateActionsToUpdateEntitySet(@Nullable Set<T> updated, @Nullable Set<T> old) {
     UpdateSets<T> updateResult = new UpdateSets<>();
@@ -83,4 +87,5 @@ public class CrudUtils {
     }
     return firstSet;
   }
+
 }

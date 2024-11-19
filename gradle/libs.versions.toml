@@ -33,7 +33,7 @@ micrometerRegirstyPrometheusVersion = '1.6.6'
 springKafkaVersion = '2.8.2'
 springKafkaTestVersion = "2.8.2"
 
-libApiVersion = "1.1.0-SNAPSHOT"
+libApiVersion = "1.2.0-SNAPSHOT"
 
 javersVersion = "6.6.2"
 
@@ -135,7 +135,7 @@ springCloud = ["springCloudBootstrap"]
 springCloudSecurity = ["springCloudSecurity"]
 springCloudDependencies = ["springCloudDependencies"]
 
-springBase = ["springBoot", "springBootAutoconfigure", "springBootStarterWeb"]
+springBase = ["springBoot", "springBootAutoconfigure", "springBootStarterWeb", "jacksonDatatype"]
 springDataJpa = ["springDataJpa"]
 springConfigurationProcessor = ["springConfigurationProcessor"]
 

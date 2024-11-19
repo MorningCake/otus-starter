@@ -1,5 +1,5 @@
 dependencies {
-    implementation group: 'ru.morningcake', name: 'lib-api-base', version: '1.1.0-SNAPSHOT', changing: true
+    implementation group: 'ru.morningcake', name: 'lib-api-base', version: '1.2.0-SNAPSHOT', changing: true
     implementation project(':general-starter')
     api libs.bundles.springBase
     implementation libs.javaxValidation
